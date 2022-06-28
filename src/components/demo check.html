@@ -1,0 +1,89 @@
+import React, { useState } from 'react'
+import { Container } from 'react-bootstrap'
+import '../css/form.css'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from "react-router-dom";
+
+function From() {
+
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
+    const [price, setPrice] = useState("");
+    const [category, setCategory] = useState("");
+    const [image, setImage] = useState("");
+    const [product, setProduct] = useState([]);
+
+    const submitHandler = () => {
+        const newObj = {
+            id: id,
+            name: name,
+            price: price,
+            category: category,
+            image: image
+        };
+        // console.log(newObj)
+        // console.log(newObj)
+        setProduct([...product, newObj]);
+        console.log(product);
+        console.log(newObj);
+
+    }
+
+    return (
+        <>
+            <Container>
+                <div className='container mb-5'>
+                    <div className="login-box card mt-5">
+                        <h2>Product Regestration</h2>
+                        <form>
+                            <div className="user-box">
+                                <input type="text" name="" value={id} required="" onChange={(e) => setId(e.target.value)} />
+                                <label>Id</label>
+                            </div>
+                            <div className="user-box">
+                                <input type="text" name="" value={name} required="" onChange={(e) => setName(e.target.value)} />
+                                <label>Product Name</label>
+                            </div>
+                            <div className="user-box">
+                                <input type="text" name="" required="" value={price} onChange={(e) => setPrice(e.target.value)} />
+                                <label>Price</label>
+                            </div>
+                            <label className='img'>Select Category</label>
+                            <select className="form-control " id="exampleFormControlSelect1" placeholder='select menu' onChange={(e) => setCategory(e.target.value)} value={category}>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <div className='mt-3 '>
+                                <label className='img'>Image</label>
+                                <input class="form-control " type="file" id="formFile" onChange={(e) => setImage(e.target.value)} />
+                            </div>
+
+                            <a href='' className='me-5' onClick={submitHandler}>
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                                submit
+                            </a>
+                            <Link to="/table">
+                                <span />
+                                <span />
+                                <span />
+                                <span />
+                                Table
+                            </Link>
+                        </form>
+                    </div>
+                </div>
+            </Container>
+        </>
+    )
+}
+
+export default From
