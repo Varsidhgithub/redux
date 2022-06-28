@@ -25,6 +25,7 @@ export default function Form() {
         const base64 = await convertBase64(image);
         console.log(base64);
         setFile(base64);
+        console.log(base64);
     }
     const convertBase64 = (file) => {
         return new Promise((resolve, reject) => {
